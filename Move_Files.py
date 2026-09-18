@@ -1,10 +1,14 @@
 import subprocess
 from tkinter import filedialog, messagebox
 from os.path import dirname,abspath
+import os
 
-def get_destination()-> str:
-    title= "Select {AppName} folder... "
-    folder_path = filedialog.askdirectory(title=title)
+def get_destination(direct:bool =False)-> str:
+    if direct:
+        title= "Select {AppName} folder... "
+        folder_path = filedialog.askdirectory(title=title)
+    else:
+        folder_path = os.path.join(os.environ["LOCALAPPDATA"], "AppName")
     return folder_path
 def get_path()-> str:
     path=dirname(abspath(__file__))+ "\\assets"
