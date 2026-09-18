@@ -11,5 +11,5 @@ def get_path()-> str:
     return  path 
 
 cmd = ["robocopy", get_path(),get_destination(), '/s']
-subprocess.run(cmd)
+subprocess.run(cmd, stdout=subprocess.DEVNULL)
 messagebox.showwarning("Restart {AppName}","You will need to restart {AppName} by saving and closing. Only AFTER will the additional features be implemented.")
